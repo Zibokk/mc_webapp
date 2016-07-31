@@ -5,7 +5,7 @@ require 'cucumber'
 desired_caps = {
     caps: {
         platformName: 'iOS',
-        platformVersion: '9.2',
+        platformVersion: '9.3',
         deviceName: 'iPhone 6',
         browserName: 'Safari',
     }
@@ -15,11 +15,11 @@ desired_caps = {
 # http://www.rubydoc.info/github/appium/ruby_lib/Appium/Driver:initialize
 #
 # Appium specific driver with helpers available.
-@appium_driver = Appium::Driver.new(desired_caps)
+$appium_driver = Appium::Driver.new(desired_caps)
 
 
 # Standard Selenium driver without any Appium methods.
- @selenium_driver = @appium_driver.start_driver
+$selenium_driver = $appium_driver.start_driver
 
 # @driver = @appium_driver.start_driver
 
@@ -31,7 +31,7 @@ desired_caps = {
 #     find_element(:id, 'lst-ib')
 Appium.promote_appium_methods Object
 
-@selenium_driver.get("http://www.google.com/")
+# @selenium_driver.get("http://www.google.com/")
 
 
 
